@@ -1,147 +1,417 @@
 {
   "ai_ml_intern": {
     "title": "AI/ML Intern",
-    "skills": {
-      "python": [
-        "python"
-      ],
-      "numpy": [
-        "numpy"
-      ],
-      "pandas": [
-        "pandas"
-      ],
-      "scikit-learn": [
-        "scikit-learn",
-        "sklearn"
-      ],
-      "pytorch": [
-        "pytorch",
-        "torch"
-      ],
-      "tensorflow": [
-        "tensorflow",
-        "tf"
-      ],
-      "nlp": [
-        "nlp",
-        "natural language processing"
-      ],
-      "computer vision": [
-        "computer vision",
-        "cv"
-      ],
-      "feature engineering": [
-        "feature engineering",
-        "feature extraction"
-      ],
-      "model evaluation": [
-        "model evaluation",
-        "cross validation",
-        "confusion matrix",
-        "f1 score",
-        "precision",
-        "recall"
-      ],
-      "git": [
-        "git",
-        "github"
-      ],
-      "docker": [
-        "docker",
-        "container",
-        "dockerfile"
-      ]
+    "description": "Entry-level position focusing on machine learning and AI development",
+    "must_have": {
+      "python": {
+        "aliases": ["python", "python3", "py"],
+        "weight": 1.0,
+        "category": "language"
+      },
+      "machine_learning": {
+        "aliases": ["machine learning", "ml", "ml models", "ml algorithms"],
+        "weight": 1.0,
+        "category": "core"
+      },
+      "deep_learning": {
+        "aliases": ["deep learning", "neural network", "neural networks", "nn", "dnn"],
+        "weight": 0.9,
+        "category": "core"
+      },
+      "pytorch": {
+        "aliases": ["pytorch", "torch", "torch.nn"],
+        "weight": 0.9,
+        "category": "framework"
+      },
+      "tensorflow": {
+        "aliases": ["tensorflow", "tf", "keras", "tf.keras"],
+        "weight": 0.9,
+        "category": "framework"
+      },
+      "scikit_learn": {
+        "aliases": ["scikit-learn", "sklearn", "scikit learn"],
+        "weight": 0.85,
+        "category": "framework"
+      },
+      "numpy": {
+        "aliases": ["numpy", "np"],
+        "weight": 0.8,
+        "category": "library"
+      },
+      "pandas": {
+        "aliases": ["pandas", "pd", "dataframe"],
+        "weight": 0.8,
+        "category": "library"
+      }
+    },
+    "nice_to_have": {
+      "nlp": {
+        "aliases": ["nlp", "natural language processing", "text processing", "transformers", "bert", "gpt", "llm", "large language model"],
+        "weight": 0.7,
+        "category": "specialization"
+      },
+      "computer_vision": {
+        "aliases": ["computer vision", "cv", "image processing", "opencv", "cnn", "convolutional"],
+        "weight": 0.7,
+        "category": "specialization"
+      },
+      "model_evaluation": {
+        "aliases": ["model evaluation", "cross validation", "confusion matrix", "f1 score", "precision", "recall", "roc", "auc"],
+        "weight": 0.6,
+        "category": "technique"
+      },
+      "feature_engineering": {
+        "aliases": ["feature engineering", "feature extraction", "feature selection", "data preprocessing"],
+        "weight": 0.6,
+        "category": "technique"
+      },
+      "git": {
+        "aliases": ["git", "github", "gitlab", "version control", "bitbucket"],
+        "weight": 0.5,
+        "category": "tools"
+      },
+      "docker": {
+        "aliases": ["docker", "container", "dockerfile", "containerization"],
+        "weight": 0.5,
+        "category": "tools"
+      },
+      "mlops": {
+        "aliases": ["mlops", "mlflow", "wandb", "weights and biases", "model deployment"],
+        "weight": 0.5,
+        "category": "tools"
+      },
+      "cloud": {
+        "aliases": ["aws", "azure", "gcp", "google cloud", "sagemaker", "cloud computing"],
+        "weight": 0.4,
+        "category": "infrastructure"
+      },
+      "sql": {
+        "aliases": ["sql", "mysql", "postgresql", "postgres", "sqlite", "database"],
+        "weight": 0.4,
+        "category": "data"
+      }
     }
   },
   "data_science_intern": {
     "title": "Data Science Intern",
-    "skills": {
-      "python": [
-        "python"
-      ],
-      "sql": [
-        "sql",
-        "mysql",
-        "postgres",
-        "sqlite"
-      ],
-      "pandas": [
-        "pandas"
-      ],
-      "numpy": [
-        "numpy"
-      ],
-      "eda": [
-        "eda",
-        "exploratory data analysis"
-      ],
-      "data visualization": [
-        "data visualization",
-        "matplotlib",
-        "seaborn",
-        "power bi",
-        "tableau"
-      ],
-      "statistics": [
-        "statistics",
-        "probability",
-        "hypothesis testing",
-        "p-value"
-      ],
-      "experimentation": [
-        "a/b testing",
-        "experiment design"
-      ],
-      "git": [
-        "git",
-        "github"
-      ]
+    "description": "Entry-level data science role focusing on analytics and insights",
+    "must_have": {
+      "python": {
+        "aliases": ["python", "python3", "py"],
+        "weight": 1.0,
+        "category": "language"
+      },
+      "sql": {
+        "aliases": ["sql", "mysql", "postgresql", "postgres", "sqlite", "sql server", "tsql"],
+        "weight": 1.0,
+        "category": "language"
+      },
+      "pandas": {
+        "aliases": ["pandas", "pd", "dataframe"],
+        "weight": 0.9,
+        "category": "library"
+      },
+      "statistics": {
+        "aliases": ["statistics", "statistical analysis", "probability", "hypothesis testing", "p-value", "regression", "correlation"],
+        "weight": 0.9,
+        "category": "core"
+      },
+      "data_analysis": {
+        "aliases": ["data analysis", "data analytics", "analytical", "analyze data"],
+        "weight": 0.9,
+        "category": "core"
+      },
+      "numpy": {
+        "aliases": ["numpy", "np"],
+        "weight": 0.8,
+        "category": "library"
+      }
+    },
+    "nice_to_have": {
+      "data_visualization": {
+        "aliases": ["data visualization", "matplotlib", "seaborn", "plotly", "power bi", "tableau", "visualization", "dashboards"],
+        "weight": 0.7,
+        "category": "visualization"
+      },
+      "eda": {
+        "aliases": ["eda", "exploratory data analysis", "data exploration", "data profiling"],
+        "weight": 0.7,
+        "category": "technique"
+      },
+      "machine_learning": {
+        "aliases": ["machine learning", "ml", "predictive modeling", "scikit-learn", "sklearn"],
+        "weight": 0.6,
+        "category": "advanced"
+      },
+      "experimentation": {
+        "aliases": ["a/b testing", "ab testing", "experiment design", "experimentation", "hypothesis testing"],
+        "weight": 0.6,
+        "category": "technique"
+      },
+      "excel": {
+        "aliases": ["excel", "spreadsheet", "google sheets", "pivot table"],
+        "weight": 0.5,
+        "category": "tools"
+      },
+      "git": {
+        "aliases": ["git", "github", "gitlab", "version control"],
+        "weight": 0.5,
+        "category": "tools"
+      },
+      "etl": {
+        "aliases": ["etl", "data pipeline", "data engineering", "airflow", "data warehouse"],
+        "weight": 0.5,
+        "category": "data"
+      },
+      "r_language": {
+        "aliases": ["r", "r programming", "rstudio", "tidyverse", "ggplot"],
+        "weight": 0.4,
+        "category": "language"
+      },
+      "cloud": {
+        "aliases": ["aws", "azure", "gcp", "google cloud", "bigquery", "redshift"],
+        "weight": 0.4,
+        "category": "infrastructure"
+      }
     }
   },
   "software_engineer_intern": {
     "title": "Software Engineer Intern",
-    "skills": {
-      "java": [
-        "java"
-      ],
-      "python": [
-        "python"
-      ],
-      "javascript": [
-        "javascript",
-        "js"
-      ],
-      "react": [
-        "react",
-        "next.js",
-        "nextjs"
-      ],
-      "api": [
-        "api",
-        "rest",
-        "restful"
-      ],
-      "databases": [
-        "sql",
-        "mysql",
-        "postgres",
-        "mongodb"
-      ],
-      "oop": [
-        "oop",
-        "object oriented"
-      ],
-      "testing": [
-        "testing",
-        "unit test",
-        "junit",
-        "pytest"
-      ],
-      "git": [
-        "git",
-        "github"
-      ]
+    "description": "Entry-level software engineering role",
+    "must_have": {
+      "programming": {
+        "aliases": ["programming", "coding", "software development", "development"],
+        "weight": 1.0,
+        "category": "core"
+      },
+      "python": {
+        "aliases": ["python", "python3", "py"],
+        "weight": 0.9,
+        "category": "language"
+      },
+      "java": {
+        "aliases": ["java", "jvm", "spring", "spring boot"],
+        "weight": 0.9,
+        "category": "language"
+      },
+      "javascript": {
+        "aliases": ["javascript", "js", "typescript", "ts", "ecmascript"],
+        "weight": 0.9,
+        "category": "language"
+      },
+      "data_structures": {
+        "aliases": ["data structures", "algorithms", "dsa", "leetcode", "problem solving"],
+        "weight": 0.85,
+        "category": "fundamentals"
+      },
+      "git": {
+        "aliases": ["git", "github", "gitlab", "version control", "bitbucket"],
+        "weight": 0.8,
+        "category": "tools"
+      }
+    },
+    "nice_to_have": {
+      "react": {
+        "aliases": ["react", "react.js", "reactjs", "next.js", "nextjs", "redux"],
+        "weight": 0.7,
+        "category": "frontend"
+      },
+      "nodejs": {
+        "aliases": ["node.js", "nodejs", "node", "express", "express.js"],
+        "weight": 0.7,
+        "category": "backend"
+      },
+      "api": {
+        "aliases": ["api", "rest", "restful", "rest api", "graphql", "api development"],
+        "weight": 0.7,
+        "category": "backend"
+      },
+      "databases": {
+        "aliases": ["sql", "mysql", "postgresql", "postgres", "mongodb", "database", "nosql", "redis"],
+        "weight": 0.7,
+        "category": "data"
+      },
+      "oop": {
+        "aliases": ["oop", "object oriented", "object-oriented", "design patterns", "solid"],
+        "weight": 0.6,
+        "category": "fundamentals"
+      },
+      "testing": {
+        "aliases": ["testing", "unit test", "unit testing", "junit", "pytest", "jest", "tdd", "test driven"],
+        "weight": 0.6,
+        "category": "quality"
+      },
+      "docker": {
+        "aliases": ["docker", "container", "kubernetes", "k8s", "containerization"],
+        "weight": 0.5,
+        "category": "devops"
+      },
+      "ci_cd": {
+        "aliases": ["ci/cd", "cicd", "continuous integration", "jenkins", "github actions", "devops"],
+        "weight": 0.5,
+        "category": "devops"
+      },
+      "agile": {
+        "aliases": ["agile", "scrum", "sprint", "jira", "kanban"],
+        "weight": 0.4,
+        "category": "methodology"
+      },
+      "cloud": {
+        "aliases": ["aws", "azure", "gcp", "google cloud", "cloud computing", "heroku"],
+        "weight": 0.4,
+        "category": "infrastructure"
+      }
+    }
+  },
+  "frontend_developer_intern": {
+    "title": "Frontend Developer Intern",
+    "description": "Entry-level frontend development role",
+    "must_have": {
+      "html": {
+        "aliases": ["html", "html5", "semantic html"],
+        "weight": 1.0,
+        "category": "core"
+      },
+      "css": {
+        "aliases": ["css", "css3", "styling", "sass", "scss", "less", "tailwind", "tailwindcss"],
+        "weight": 1.0,
+        "category": "core"
+      },
+      "javascript": {
+        "aliases": ["javascript", "js", "ecmascript", "es6", "es2015"],
+        "weight": 1.0,
+        "category": "language"
+      },
+      "react": {
+        "aliases": ["react", "react.js", "reactjs", "react hooks", "jsx"],
+        "weight": 0.9,
+        "category": "framework"
+      },
+      "responsive_design": {
+        "aliases": ["responsive", "responsive design", "mobile-first", "media queries", "flexbox", "grid"],
+        "weight": 0.85,
+        "category": "technique"
+      }
+    },
+    "nice_to_have": {
+      "typescript": {
+        "aliases": ["typescript", "ts"],
+        "weight": 0.7,
+        "category": "language"
+      },
+      "nextjs": {
+        "aliases": ["next.js", "nextjs", "next"],
+        "weight": 0.7,
+        "category": "framework"
+      },
+      "vue": {
+        "aliases": ["vue", "vue.js", "vuejs", "nuxt"],
+        "weight": 0.6,
+        "category": "framework"
+      },
+      "state_management": {
+        "aliases": ["redux", "zustand", "context api", "state management", "recoil"],
+        "weight": 0.6,
+        "category": "technique"
+      },
+      "testing": {
+        "aliases": ["jest", "testing library", "cypress", "playwright", "unit testing"],
+        "weight": 0.5,
+        "category": "quality"
+      },
+      "git": {
+        "aliases": ["git", "github", "gitlab", "version control"],
+        "weight": 0.5,
+        "category": "tools"
+      },
+      "figma": {
+        "aliases": ["figma", "sketch", "adobe xd", "ui design", "design tools"],
+        "weight": 0.4,
+        "category": "design"
+      },
+      "accessibility": {
+        "aliases": ["accessibility", "a11y", "wcag", "aria", "screen reader"],
+        "weight": 0.4,
+        "category": "quality"
+      },
+      "performance": {
+        "aliases": ["performance", "optimization", "lighthouse", "web vitals", "lazy loading"],
+        "weight": 0.4,
+        "category": "quality"
+      }
+    }
+  },
+  "backend_developer_intern": {
+    "title": "Backend Developer Intern",
+    "description": "Entry-level backend development role",
+    "must_have": {
+      "programming": {
+        "aliases": ["programming", "backend development", "server-side", "backend"],
+        "weight": 1.0,
+        "category": "core"
+      },
+      "python": {
+        "aliases": ["python", "django", "flask", "fastapi"],
+        "weight": 0.9,
+        "category": "language"
+      },
+      "databases": {
+        "aliases": ["sql", "database", "mysql", "postgresql", "postgres", "mongodb", "nosql"],
+        "weight": 0.9,
+        "category": "data"
+      },
+      "api": {
+        "aliases": ["api", "rest", "restful", "rest api", "api development", "endpoints"],
+        "weight": 0.9,
+        "category": "core"
+      },
+      "git": {
+        "aliases": ["git", "github", "gitlab", "version control"],
+        "weight": 0.8,
+        "category": "tools"
+      }
+    },
+    "nice_to_have": {
+      "nodejs": {
+        "aliases": ["node.js", "nodejs", "express", "express.js"],
+        "weight": 0.7,
+        "category": "language"
+      },
+      "java": {
+        "aliases": ["java", "spring", "spring boot", "jvm"],
+        "weight": 0.7,
+        "category": "language"
+      },
+      "authentication": {
+        "aliases": ["authentication", "auth", "oauth", "jwt", "authorization", "security"],
+        "weight": 0.6,
+        "category": "security"
+      },
+      "caching": {
+        "aliases": ["redis", "caching", "memcached", "cache"],
+        "weight": 0.5,
+        "category": "performance"
+      },
+      "docker": {
+        "aliases": ["docker", "container", "kubernetes", "k8s"],
+        "weight": 0.5,
+        "category": "devops"
+      },
+      "testing": {
+        "aliases": ["testing", "unit testing", "pytest", "junit", "integration testing"],
+        "weight": 0.5,
+        "category": "quality"
+      },
+      "message_queues": {
+        "aliases": ["rabbitmq", "kafka", "message queue", "celery", "sqs"],
+        "weight": 0.4,
+        "category": "infrastructure"
+      },
+      "cloud": {
+        "aliases": ["aws", "azure", "gcp", "cloud", "lambda", "serverless"],
+        "weight": 0.4,
+        "category": "infrastructure"
+      }
     }
   }
 }
