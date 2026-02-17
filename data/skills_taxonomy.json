@@ -1,0 +1,147 @@
+{
+  "ai_ml_intern": {
+    "title": "AI/ML Intern",
+    "skills": {
+      "python": [
+        "python"
+      ],
+      "numpy": [
+        "numpy"
+      ],
+      "pandas": [
+        "pandas"
+      ],
+      "scikit-learn": [
+        "scikit-learn",
+        "sklearn"
+      ],
+      "pytorch": [
+        "pytorch",
+        "torch"
+      ],
+      "tensorflow": [
+        "tensorflow",
+        "tf"
+      ],
+      "nlp": [
+        "nlp",
+        "natural language processing"
+      ],
+      "computer vision": [
+        "computer vision",
+        "cv"
+      ],
+      "feature engineering": [
+        "feature engineering",
+        "feature extraction"
+      ],
+      "model evaluation": [
+        "model evaluation",
+        "cross validation",
+        "confusion matrix",
+        "f1 score",
+        "precision",
+        "recall"
+      ],
+      "git": [
+        "git",
+        "github"
+      ],
+      "docker": [
+        "docker",
+        "container",
+        "dockerfile"
+      ]
+    }
+  },
+  "data_science_intern": {
+    "title": "Data Science Intern",
+    "skills": {
+      "python": [
+        "python"
+      ],
+      "sql": [
+        "sql",
+        "mysql",
+        "postgres",
+        "sqlite"
+      ],
+      "pandas": [
+        "pandas"
+      ],
+      "numpy": [
+        "numpy"
+      ],
+      "eda": [
+        "eda",
+        "exploratory data analysis"
+      ],
+      "data visualization": [
+        "data visualization",
+        "matplotlib",
+        "seaborn",
+        "power bi",
+        "tableau"
+      ],
+      "statistics": [
+        "statistics",
+        "probability",
+        "hypothesis testing",
+        "p-value"
+      ],
+      "experimentation": [
+        "a/b testing",
+        "experiment design"
+      ],
+      "git": [
+        "git",
+        "github"
+      ]
+    }
+  },
+  "software_engineer_intern": {
+    "title": "Software Engineer Intern",
+    "skills": {
+      "java": [
+        "java"
+      ],
+      "python": [
+        "python"
+      ],
+      "javascript": [
+        "javascript",
+        "js"
+      ],
+      "react": [
+        "react",
+        "next.js",
+        "nextjs"
+      ],
+      "api": [
+        "api",
+        "rest",
+        "restful"
+      ],
+      "databases": [
+        "sql",
+        "mysql",
+        "postgres",
+        "mongodb"
+      ],
+      "oop": [
+        "oop",
+        "object oriented"
+      ],
+      "testing": [
+        "testing",
+        "unit test",
+        "junit",
+        "pytest"
+      ],
+      "git": [
+        "git",
+        "github"
+      ]
+    }
+  }
+}
