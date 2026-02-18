@@ -189,19 +189,31 @@ def detect_contact_info(text: str) -> ContactInfo:
             phone = phone_match.group(0)
             break
     
-    # LinkedIn
-    linkedin_match = re.search(
-        r'(?:linkedin\.com/in/|linkedin:\s*@?)([a-zA-Z0-9-]+)',
-        text, re.IGNORECASE
-    )
-    linkedin = linkedin_match.group(0) if linkedin_match else None
+    # LinkedIn - handle full URLs and various formats
+    linkedin_patterns = [
+        r'(?:https?://)?(?:www\.)?linkedin\.com/in/([a-zA-Z0-9_-]+)/?',
+        r'linkedin\.com/in/([a-zA-Z0-9_-]+)',
+        r'linkedin:\s*@?([a-zA-Z0-9_-]+)',
+    ]
+    linkedin = None
+    for pattern in linkedin_patterns:
+        linkedin_match = re.search(pattern, text, re.IGNORECASE)
+        if linkedin_match:
+            linkedin = linkedin_match.group(0)
+            break
     
-    # GitHub
-    github_match = re.search(
-        r'(?:github\.com/|github:\s*@?)([a-zA-Z0-9-]+)',
-        text, re.IGNORECASE
-    )
-    github = github_match.group(0) if github_match else None
+    # GitHub - handle full URLs and various formats
+    github_patterns = [
+        r'(?:https?://)?(?:www\.)?github\.com/([a-zA-Z0-9_-]+)/?',
+        r'github\.com/([a-zA-Z0-9_-]+)',
+        r'github:\s*@?([a-zA-Z0-9_-]+)',
+    ]
+    github = None
+    for pattern in github_patterns:
+        github_match = re.search(pattern, text, re.IGNORECASE)
+        if github_match:
+            github = github_match.group(0)
+            break
     
     # Website/Portfolio
     website_match = re.search(

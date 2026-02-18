@@ -1,7 +1,17 @@
-streamlit
+# Core
+streamlit>=1.28.0
+
+# PDF/Document Processing
 pdfplumber
 python-docx
+
+# ML/NLP
 scikit-learn
-rapidfuzz
 sentence-transformers
 numpy
+
+# Text Processing
+rapidfuzz
+
+# Report Generation (optional - for PDF export)
+reportlab
