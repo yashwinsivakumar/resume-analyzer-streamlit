@@ -4,7 +4,7 @@ import streamlit as st
 from src.extract import extract_any
 from src.clean import clean_text
 from src.scoring import tfidf_similarity
-from src.skills import detect_skills
+from src.skills import detect_skills, get_all_skills_from_taxonomy
 from src.ats import basic_ats_checks
 
 st.set_page_config(page_title="Resume Analyzer", layout="wide")
@@ -30,15 +30,26 @@ if st.button("Analyze"):
         st.stop()
 
     file_bytes = resume_file.read()
-    resume_text = extract_any(resume_file.name, file_bytes)
+    extraction_result = extract_any(resume_file.name, file_bytes)
+    
+    # Show extraction warnings if any
+    if extraction_result.warnings:
+        for warn in extraction_result.warnings:
+            st.warning(warn)
+    
+    if not extraction_result.success:
+        st.error("Failed to extract text from the resume. Please try a different file.")
+        st.stop()
+    
+    resume_text = extraction_result.text
     jd_text = clean_text(jd_text_input)
 
     # Similarity score (lightweight)
     sim = tfidf_similarity(resume_text, jd_text)
     match_score = int(round(sim * 100))
 
-    # Skill detection
-    skill_map = TAX[role_key]["skills"]
+    # Skill detection - use helper to convert new taxonomy format to legacy format
+    skill_map = get_all_skills_from_taxonomy(TAX[role_key])
     resume_sk = detect_skills(resume_text, skill_map)
     jd_sk = detect_skills(jd_text, skill_map)
 

@@ -3,3 +3,5 @@ pdfplumber
 python-docx
 scikit-learn
 rapidfuzz
+sentence-transformers
+numpy
