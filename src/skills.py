@@ -205,10 +205,12 @@ def analyze_skills_sectioned(
     nice_to_have_matched = []
     nice_to_have_missing = []
     
-    # Process must-have skills
-    must_have = role_taxonomy.get("must_have", {})
-    for skill_id, skill_info in must_have.items():
-        aliases = skill_info.get("aliases", [])
+    # Process must-have skills (now a list of skill objects)
+    must_have = role_taxonomy.get("must_have", [])
+    for skill_info in must_have:
+        skill_name = skill_info.get("skill", "")
+        skill_id = skill_name.lower().replace(" ", "_")
+        aliases = [skill_name] + skill_info.get("aliases", [])
         weight = skill_info.get("weight", 1.0)
         category = skill_info.get("category", "other")
         
@@ -230,21 +232,23 @@ def analyze_skills_sectioned(
         if all_evidence:
             detected_skills[skill_id] = DetectedSkill(
                 skill_id=skill_id,
-                skill_name=skill_id.replace("_", " ").title(),
+                skill_name=skill_name,
                 priority=SkillPriority.MUST_HAVE,
                 weight=weight,
                 category=category,
                 confidence=best_confidence,
                 evidence_list=all_evidence
             )
-            must_have_matched.append(skill_id)
+            must_have_matched.append(skill_name)
         else:
-            must_have_missing.append(skill_id)
+            must_have_missing.append(skill_name)
     
-    # Process nice-to-have skills
-    nice_to_have = role_taxonomy.get("nice_to_have", {})
-    for skill_id, skill_info in nice_to_have.items():
-        aliases = skill_info.get("aliases", [])
+    # Process nice-to-have skills (now a list of skill objects)
+    nice_to_have = role_taxonomy.get("nice_to_have", [])
+    for skill_info in nice_to_have:
+        skill_name = skill_info.get("skill", "")
+        skill_id = skill_name.lower().replace(" ", "_")
+        aliases = [skill_name] + skill_info.get("aliases", [])
         weight = skill_info.get("weight", 0.5)
         category = skill_info.get("category", "other")
         
@@ -265,16 +269,16 @@ def analyze_skills_sectioned(
         if all_evidence:
             detected_skills[skill_id] = DetectedSkill(
                 skill_id=skill_id,
-                skill_name=skill_id.replace("_", " ").title(),
+                skill_name=skill_name,
                 priority=SkillPriority.NICE_TO_HAVE,
                 weight=weight,
                 category=category,
                 confidence=best_confidence,
                 evidence_list=all_evidence
             )
-            nice_to_have_matched.append(skill_id)
+            nice_to_have_matched.append(skill_name)
         else:
-            nice_to_have_missing.append(skill_id)
+            nice_to_have_missing.append(skill_name)
     
     return SkillAnalysisResult(
         detected_skills=detected_skills,
@@ -343,13 +347,16 @@ def get_all_skills_from_taxonomy(role_taxonomy: dict) -> dict[str, list[str]]:
     """
     Convert new taxonomy format to legacy skill_map format.
     Combines must_have and nice_to_have into single dict.
+    Now handles list-based format where skills are objects in a list.
     """
     skill_map = {}
     
     for priority in ["must_have", "nice_to_have"]:
-        skills = role_taxonomy.get(priority, {})
-        for skill_id, skill_info in skills.items():
-            skill_map[skill_id] = skill_info.get("aliases", [])
+        skills = role_taxonomy.get(priority, [])
+        for skill_info in skills:
+            skill_name = skill_info.get("skill", "")
+            aliases = skill_info.get("aliases", [])
+            skill_map[skill_name] = aliases
     
     return skill_map
 

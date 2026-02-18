@@ -129,12 +129,32 @@ st.markdown(
 with st.sidebar:
     st.header("⚙️ Settings")
     
-    role_keys = list(TAX.keys())
+    # Get tracks
+    tracks = TAX.get("tracks", {})
+    track_keys = list(tracks.keys())
+    
+    # Track selection (first dropdown)
+    selected_track = st.selectbox(
+        "Career Track",
+        track_keys,
+        format_func=lambda k: tracks[k]['name']
+    )
+    
+    # Get roles for selected track
+    track_data = tracks.get(selected_track, {})
+    role_keys = list(track_data.get("roles", {}).keys())
+    
+    # Role selection (second dropdown)
     selected_role = st.selectbox(
         "Target Role",
         role_keys,
-        format_func=lambda k: TAX[k]["title"]
+        format_func=lambda k: track_data["roles"][k]["title"]
     )
+    
+    # Show role level
+    if selected_role:
+        role_info = track_data["roles"][selected_role]
+        st.caption(f"Level: {role_info.get('level', 'Entry-Level')}")
     
     st.divider()
     
@@ -201,7 +221,7 @@ if analyze_btn:
     progress_bar.progress(40, text="Analyzing skills...")
     
     # 3. Compute Hybrid Score
-    role_taxonomy = TAX[selected_role]
+    role_taxonomy = TAX["tracks"][selected_track]["roles"][selected_role]
     hybrid_score = compute_hybrid_score(resume_text, jd_text, role_taxonomy, parsed_resume)
     
     progress_bar.progress(60, text="Running ATS checks...")
@@ -218,7 +238,7 @@ if analyze_btn:
     role_recommendation = None
     if enable_role_rec:
         progress_bar.progress(90, text="Analyzing role fit...")
-        role_recommendation = recommend_roles(resume_text, TAX, parsed_resume)
+        role_recommendation = recommend_roles(resume_text, TAX["tracks"], parsed_resume)
     
     progress_bar.progress(100, text="Complete!")
     progress_bar.empty()
@@ -229,7 +249,7 @@ if analyze_btn:
         ats_analysis=ats_analysis,
         impact_analysis=impact_analysis,
         role_recommendation=role_recommendation,
-        job_title=TAX[selected_role]["title"]
+        job_title=role_taxonomy["title"]
     )
     
     # ============ RESULTS DISPLAY ============

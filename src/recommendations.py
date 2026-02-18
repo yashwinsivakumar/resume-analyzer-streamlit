@@ -157,7 +157,7 @@ def recommend_roles(
     
     Args:
         resume_text: Full resume text
-        taxonomy: Full taxonomy with all roles
+        taxonomy: Full taxonomy with tracks containing roles
         parsed_resume: Optional pre-parsed resume
         
     Returns:
@@ -169,14 +169,17 @@ def recommend_roles(
     matches = []
     all_skills = set()
     
-    for role_key, role_data in taxonomy.items():
-        role_match = calculate_role_alignment(resume_text, role_data, parsed_resume)
-        role_match.role_key = role_key
-        matches.append(role_match)
-        
-        # Collect all matched skills
-        all_skills.update(role_match.must_have_matched)
-        all_skills.update(role_match.nice_to_have_matched)
+    # Iterate through tracks and their roles
+    for track_key, track_data in taxonomy.items():
+        roles = track_data.get("roles", {})
+        for role_key, role_data in roles.items():
+            role_match = calculate_role_alignment(resume_text, role_data, parsed_resume)
+            role_match.role_key = role_key
+            matches.append(role_match)
+            
+            # Collect all matched skills
+            all_skills.update(role_match.must_have_matched)
+            all_skills.update(role_match.nice_to_have_matched)
     
     # Sort by alignment score (highest first)
     matches.sort(key=lambda m: m.alignment_score, reverse=True)
